@@ -17,7 +17,7 @@ An empty string is printed
 ### Observation
 
 - Variable `elementsBuffer` accessed in `CssRender.render` is empty.
-- When you remove `CrossProject` and do a clean build, Css is printed fine
+- When you remove `JSDependenciesPlugin` and do a clean build, Css is printed fine
 
 
 
