@@ -5,12 +5,12 @@ import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 lazy val commonSettings = Seq(
   organization := "com.github.ondrejspanel",
   version := "0.5.0",
-  scalaVersion := "2.13.10",
+  scalaVersion := "2.12.17",
   scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 )
 
 lazy val jvmLibs = Seq(
-  "io.udash" %% "udash-css" % "0.9.0"
+  "io.udash" %% "udash-css" % "0.8.6"
 )
 
 lazy val sharedJs = project.in(file("shared-js"))
