@@ -24,5 +24,6 @@ object CssRenderer {
   def main(args: Array[String]): Unit = {
     val css = new CssRenderer(true).render()
     println(css)
+    if (css.isEmpty) println("CSS is empty")
   }
 }
