@@ -13,13 +13,16 @@ lazy val jvmLibs = Seq(
   "io.udash" %% "udash-css" % "0.9.0"
 )
 
-lazy val sharedJs = project.in(file("shared-js"))
+lazy val sharedJs = crossProject(JVMPlatform)
+  .crossType(CrossType.Pure).in(file("shared-js"))
   .enablePlugins(JSDependenciesPlugin)
   .settings(commonSettings)
-  .settings(libraryDependencies ++= jvmLibs)
+  .jvmSettings(libraryDependencies ++= jvmLibs)
+
+lazy val sharedJs_JVM = sharedJs.jvm
 
 lazy val backend = (project in file("backend"))
-  .dependsOn(sharedJs)
+  .dependsOn(sharedJs.jvm)
   .settings(
     commonSettings,
     libraryDependencies ++= jvmLibs,
