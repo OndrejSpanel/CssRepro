@@ -1,7 +1,3 @@
-import sbt.Keys.scalacOptions
-// shadow sbt-scalajs' crossProject and CrossType from Scala.js 0.6.x
-import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
-
 lazy val commonSettings = Seq(
   organization := "com.github.ondrejspanel",
   version := "0.5.0",
@@ -14,8 +10,7 @@ lazy val jvmLibs = Seq(
 )
 
 lazy val sharedJs = project.in(file("shared-js"))
-  .disablePlugins(sbtassembly.AssemblyPlugin)
-  .enablePlugins(JSDependenciesPlugin)
+  .enablePlugins(ScalaJSBundlerPlugin)
   .settings(commonSettings)
   .settings(libraryDependencies ++= jvmLibs)
 
