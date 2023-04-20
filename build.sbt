@@ -9,9 +9,9 @@ lazy val jvmLibs = Seq(
   "io.udash" %% "udash-css" % "0.9.0"
 )
 
-lazy val sharedJs = crossProject(JVMPlatform)
+lazy val sharedJs = crossProject(JVMPlatform, JSPlatform)
   .crossType(CrossType.Pure).in(file("shared-js"))
-  .enablePlugins(ScalaJSBundlerPlugin)
+  .jsConfigure(_.enablePlugins(ScalaJSBundlerPlugin))
   .settings(commonSettings)
   .jvmSettings(libraryDependencies ++= jvmLibs)
 
