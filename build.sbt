@@ -14,7 +14,6 @@ lazy val jvmLibs = Seq(
 )
 
 lazy val sharedJs = project.in(file("shared-js"))
-  .disablePlugins(sbtassembly.AssemblyPlugin)
   .enablePlugins(JSDependenciesPlugin)
   .settings(commonSettings)
   .settings(libraryDependencies ++= jvmLibs)
